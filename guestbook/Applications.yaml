@@ -1,0 +1,15 @@
+# Exported from:        http://Ponnivalavan:5516/
+# Release version:      25.1.0-SNAPSHOT
+# Date created:         Mon Mar 03 12:50:34 IST 2025
+
+---
+apiVersion: xl-release/v1
+kind: Applications
+metadata:
+  path: /
+  home: test
+spec:
+- name: app1
+  type: xlrelease.Application
+  environments:
+  - env1

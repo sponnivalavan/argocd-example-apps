@@ -1,6 +1,6 @@
 # Exported from:        http://Ponnivalavan:5516/
 # Release version:      25.1.0-SNAPSHOT
-# Date created:         Tue Mar 04 11:02:23 IST 2025
+# Date created:         Tue Mar 04 15:29:24 IST 2025
 
 ---
 apiVersion: xl-release/v1
@@ -9,6 +9,25 @@ metadata:
   path: /
   home: test
 spec:
+- name: "default [7178ab]"
+  type: xlrelease.Environment
+  correlationUid: "default [7178ab]:[https://kubernetes.default.svc]"
+  description: "Target: https://kubernetes.default.svc"
+  stage: Unknown
+  deploymentTarget:
+    type: argocd.DeploymentTarget
+    targetUrl: https://kubernetes.default.svc
+    destination: https://kubernetes.default.svc
+    namespace: default
+- name: dev
+  type: xlrelease.Environment
+  correlationUid: 4408f62c-6041-459c-88d2-afa6bd47f59c
+  description: "Target: https://35e6-49-205-83-66.ngrok-free.app/#/explorer?ciId=Environments/dev-dir/dev"
+  stage: Unknown
+  deploymentTarget:
+    type: deploy.DeploymentTarget
+    targetUrl: https://35e6-49-205-83-66.ngrok-free.app/#/explorer?ciId=Environments/dev-dir/dev
+    environmentPath: "[dev](https://35e6-49-205-83-66.ngrok-free.app/#/explorer?ciId=Environments/dev-dir/dev)"
 - name: env1
   type: xlrelease.Environment
   description: test
@@ -22,3 +41,21 @@ spec:
   stage: Development
   labels:
   - green
+- name: prod
+  type: xlrelease.Environment
+  correlationUid: 27abfd04-0cc0-4469-a117-151d0f7bc80c
+  description: "Target: https://35e6-49-205-83-66.ngrok-free.app/#/explorer?ciId=Environments/prod-dir/prod"
+  stage: Unknown
+  deploymentTarget:
+    type: deploy.DeploymentTarget
+    targetUrl: https://35e6-49-205-83-66.ngrok-free.app/#/explorer?ciId=Environments/prod-dir/prod
+    environmentPath: "[prod](https://35e6-49-205-83-66.ngrok-free.app/#/explorer?ciId=Environments/prod-dir/prod)"
+- name: test
+  type: xlrelease.Environment
+  correlationUid: 6c71a512-10a3-42ec-95b0-9eec66c07f10
+  description: "Target: https://35e6-49-205-83-66.ngrok-free.app/#/explorer?ciId=Environments/test-dir/test"
+  stage: Unknown
+  deploymentTarget:
+    type: deploy.DeploymentTarget
+    targetUrl: https://35e6-49-205-83-66.ngrok-free.app/#/explorer?ciId=Environments/test-dir/test
+    environmentPath: "[test](https://35e6-49-205-83-66.ngrok-free.app/#/explorer?ciId=Environments/test-dir/test)"

@@ -1,6 +1,6 @@
 # Exported from:        http://Ponnivalavan:5516/
 # Release version:      25.1.0-SNAPSHOT
-# Date created:         Tue Mar 04 11:02:23 IST 2025
+# Date created:         Tue Mar 04 15:29:24 IST 2025
 
 ---
 apiVersion: xl-release/v1
@@ -15,6 +15,11 @@ spec:
     users:
     - admin
     permissions:
+    - release#reassign_lock_task
+    - release#view
+    - trigger#view_trigger
+    - folder#view
+    - release#task_transition
     - app_pipelines#view
     - release#start
     - workflow#view_execution
@@ -22,7 +27,6 @@ spec:
     - trigger#edit_trigger
     - release#edit_task_flag
     - release#edit_task
-    - release#reassign_lock_task
     - release#edit_task_tags
     - release#abort
     - release#edit_precondition
@@ -41,15 +45,10 @@ spec:
     - release#edit_task_attachments
     - release#lock_task
     - workflow#abort_execution
-    - release#view
-    - trigger#view_trigger
-    - folder#view
-    - release#task_transition
   - name: Template Owner
     users:
     - admin
     permissions:
-    - template#create_release
     - template#lock_task
     - template#edit_security
     - trigger#view_trigger
@@ -61,22 +60,23 @@ spec:
     - template#edit_triggers
     - folder#view
     - template#view
+    - template#create_release
   - name: Folder Owner
     users:
     - admin
     permissions:
-    - dashboard#edit
-    - folder#edit_configuration
-    - folder#edit_versions
-    - delivery_pattern#edit
+    - group#view
     - app_pipelines#edit
     - delivery#edit_tracked_item
     - delivery#view
     - folder#apply_changes
     - delivery#edit
     - folder#view_versions
-    - group#view
     - group#edit
+    - dashboard#edit
+    - folder#edit_configuration
+    - folder#edit_versions
+    - delivery_pattern#edit
     - folder#generate_configuration
     - folder#view
     - dashboard#view

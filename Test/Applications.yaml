@@ -1,37 +1,14 @@
 # Exported from:        http://Ponnivalavan:5516/
 # Release version:      25.1.0-SNAPSHOT
-# Date created:         Tue Mar 04 15:29:24 IST 2025
+# Date created:         Fri Mar 07 13:18:33 IST 2025
 
 ---
 apiVersion: xl-release/v1
 kind: Applications
 metadata:
   path: /
-  home: test
+  home: test2
 spec:
-- name: GuestApp
-  type: xlrelease.Application
-  correlationUid: e8862572-807b-461a-bc54-ba76826a4e05
-  applicationSource:
-    type: deploy.ApplicationSource
-    serverUrl: https://35e6-49-205-83-66.ngrok-free.app
-    applicationPath: "[GuestApp](https://35e6-49-205-83-66.ngrok-free.app/#/explorer?ciId=Applications)"
-  environments:
-  - dev
-- name: TodoApp
-  type: xlrelease.Application
-  correlationUid: 65266ff0-7897-4157-b961-1a49e9a91bb9
-  applicationSource:
-    type: deploy.ApplicationSource
-    serverUrl: https://35e6-49-205-83-66.ngrok-free.app
-    applicationPath: "[TodoApp](https://35e6-49-205-83-66.ngrok-free.app/#/explorer?ciId=Applications)"
-  environments:
-  - test
-- name: app1
-  type: xlrelease.Application
-  environments:
-  - env1
-  - env2
 - name: app1:default
   type: xlrelease.Application
   correlationUid: "app1:[https://kubernetes.default.svc]"
@@ -43,11 +20,6 @@ spec:
     path: "[guestbook](https://github.com/argoproj/argocd-example-apps/tree/HEAD/guestbook)"
   environments:
   - "default [7178ab]"
-- name: app2
-  type: xlrelease.Application
-  environments:
-  - env1
-  - env2
 - name: app23:default
   type: xlrelease.Application
   correlationUid: "app23:[https://kubernetes.default.svc]"

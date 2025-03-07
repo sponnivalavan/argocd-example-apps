@@ -1,13 +1,13 @@
 # Exported from:        http://Ponnivalavan:5516/
 # Release version:      25.1.0-SNAPSHOT
-# Date created:         Tue Mar 04 15:29:24 IST 2025
+# Date created:         Fri Mar 07 13:18:33 IST 2025
 
 ---
 apiVersion: xl-release/v1
 kind: Templates
 metadata:
   path: /
-  home: test
+  home: test2
 spec:
 - name: argocd server - Event source
   type: argo.StatusWebhookEventSource
@@ -17,33 +17,18 @@ spec:
   - null
 - name: argocd server
   type: argocd.APIServer
-  url: https://ec2-18-216-146-10.us-east-2.compute.amazonaws.com:30735/
+  url: https://ec2-3-15-28-59.us-east-2.compute.amazonaws.com:30735/
   username: admin
   password: !value "argocd_APIServer_argocd_server_password"
 - name: argocd server deployments
   type: argocd.DeploymentConfig
-- name: deploy server deployments
-  type: deploy.DeploymentConfig
-  application: Applications/.*
-  environment: Environments/.*
-- name: deploy server - Event source
-  type: deploy.StatusWebhookEventSource
-  eventSource: deploy server - Webhook
-  sourceServer: deploy server
-  liveDeploymentConfigs:
-  - null
-- name: deploy server
-  type: digitalai.DeployServer
-  url: https://35e6-49-205-83-66.ngrok-free.app
-  username: admin
-  password: !value "digitalai_DeployServer_deploy_server_password"
 - name: argocd server - Webhook
   type: events.PostWebhookEndpoint
-  path: path-486b4bf3-6c3d-4eaf-ac5e-64ed67a2b318
+  path: path-bb521371-6f42-4314-a25a-b4ee6b278db4
   authentication:
     type: events.NoAuthentication
-- name: deploy server - Webhook
-  type: events.PostWebhookEndpoint
-  path: path-5cad11b1-e22c-455b-a5e2-00400d0182a3
-  authentication:
-    type: events.NoAuthentication
+- name: argocd example repo
+  type: git.Repository
+  url: https://github.com/argoproj/argocd-example-apps
+  username: sponnivalavan
+  password: !value "git_Repository_argocd_example_repo_password"

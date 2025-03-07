@@ -1,6 +1,6 @@
 # Exported from:        http://Ponnivalavan:5516/
 # Release version:      25.1.0-SNAPSHOT
-# Date created:         Tue Mar 04 15:29:24 IST 2025
+# Date created:         Fri Mar 07 13:18:32 IST 2025
 
 ---
 apiVersion: xl-release/v1
@@ -11,4 +11,3 @@ spec:
   - Connections.yaml
   - Environments.yaml
   - Notifications.yaml
-  - Permissions.yaml

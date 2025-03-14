@@ -1,0 +1,28 @@
+# Exported from:        http://Ponnivalavan:5516/
+# Release version:      25.1.0-SNAPSHOT
+# Date created:         Fri Mar 14 11:30:32 IST 2025
+
+---
+apiVersion: xl-release/v1
+kind: Environments
+metadata:
+  path: /
+  home: test
+spec:
+- name: "default [7178ab]"
+  type: xlrelease.Environment
+  correlationUid: "default [7178ab]:[https://kubernetes.default.svc]"
+  description: "Target: https://kubernetes.default.svc"
+  stage: Unknown
+  deploymentTarget:
+    type: argocd.DeploymentTarget
+    targetUrl: https://kubernetes.default.svc
+    destination: https://kubernetes.default.svc
+    namespace: default
+- name: environment1
+  type: xlrelease.Environment
+  description: test
+  stage: Acceptance
+  labels:
+  - blue
+  - green

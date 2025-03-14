@@ -1,0 +1,37 @@
+# Exported from:        http://Ponnivalavan:5516/
+# Release version:      25.1.0-SNAPSHOT
+# Date created:         Fri Mar 14 11:30:32 IST 2025
+
+---
+apiVersion: xl-release/v1
+kind: Applications
+metadata:
+  path: /
+  home: test
+spec:
+- name: app1:default
+  type: xlrelease.Application
+  correlationUid: "app1:[https://kubernetes.default.svc]"
+  applicationSource:
+    type: argocd.ApplicationSource
+    serverUrl: https://github.com/argoproj/argocd-example-apps.git
+    repository: https://github.com/argoproj/argocd-example-apps.git
+    targetRevision: "[HEAD](https://github.com/argoproj/argocd-example-apps/tree/HEAD)"
+    path: "[guestbook](https://github.com/argoproj/argocd-example-apps/tree/HEAD/guestbook)"
+  environments:
+  - "default [7178ab]"
+- name: app23:default
+  type: xlrelease.Application
+  correlationUid: "app23:[https://kubernetes.default.svc]"
+  applicationSource:
+    type: argocd.ApplicationSource
+    serverUrl: https://github.com/sponnivalavan/argocd-example-apps.git
+    repository: https://github.com/sponnivalavan/argocd-example-apps.git
+    targetRevision: "[HEAD](https://github.com/sponnivalavan/argocd-example-apps/tree/HEAD)"
+    path: "[guestbook](https://github.com/sponnivalavan/argocd-example-apps/tree/HEAD/guestbook)"
+  environments:
+  - "default [7178ab]"
+- name: application1
+  type: xlrelease.Application
+  environments:
+  - environment1

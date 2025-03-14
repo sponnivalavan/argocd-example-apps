@@ -1,0 +1,29 @@
+# Exported from:        http://Ponnivalavan:5516/
+# Release version:      25.1.0-SNAPSHOT
+# Date created:         Fri Mar 14 11:30:32 IST 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: test
+spec:
+- name: argocd server - Webhook
+  type: events.PostWebhookEndpoint
+  path: path-daeae4b7-084f-42df-b4d8-c02257544411
+  authentication:
+    type: events.NoAuthentication
+- name: argocd server deployments
+  type: argocd.DeploymentConfig
+- name: argocd server
+  type: argocd.APIServer
+  url: https://ec2-3-15-28-59.us-east-2.compute.amazonaws.com:30735/
+  username: admin
+  password: !value "argocd_APIServer_argocd_server_password"
+- name: argocd server - Event source
+  type: argo.StatusWebhookEventSource
+  eventSource: argocd server - Webhook
+  sourceServer: argocd server
+  liveDeploymentConfigs:
+  - argocd server deployments

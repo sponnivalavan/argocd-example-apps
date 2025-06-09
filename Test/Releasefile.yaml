@@ -1,13 +1,14 @@
 # Exported from:        http://Ponnivalavan:5516/
-# Release version:      25.3.0-SNAPSHOT
-# Date created:         Mon Jun 09 13:24:59 IST 2025
+# Release version:      24.1.19-608.113
+# Date created:         Mon Jun 09 22:13:57 IST 2025
 
 ---
 apiVersion: xl-release/v1
 kind: Import
 spec:
   imports:
-  - Applications.yaml
   - Connections.yaml
-  - Environments.yaml
+  - Dashboard_test.yaml
   - Notifications.yaml
+  - Pattern_test.yaml
+  - Template_testtemp.yaml

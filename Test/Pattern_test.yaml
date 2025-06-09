@@ -9,8 +9,10 @@ metadata:
   path: /
   home: test
 spec:
-- name: argocd server
-  type: argocd.APIServer
-  url: https://argocd.digitalai-testing.com:31591/
-  username: admin
-  password: !value "argocd_APIServer_argocd_server_password"
+- pattern: test
+  description: test
+  stages:
+  - stage: New Stage
+  - stage: New Stage (1)
+  - stage: New Stage (2)
+  - stage: New Stage (3)

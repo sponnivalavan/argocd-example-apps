@@ -1,6 +1,6 @@
 # Exported from:        http://Ponnivalavan:5516/
 # Release version:      25.3.0-SNAPSHOT
-# Date created:         Mon Jun 09 13:16:51 IST 2025
+# Date created:         Mon Jun 09 13:24:59 IST 2025
 
 ---
 apiVersion: xl-release/v1
@@ -13,3 +13,40 @@ spec:
   type: xlrelease.Environment
   description: test
   stage: Acceptance
+- name: "default [7178ab]"
+  type: xlrelease.Environment
+  correlationUid: "default [7178ab]:[https://kubernetes.default.svc]"
+  description: "Target: https://kubernetes.default.svc"
+  stage: Unknown
+  deploymentTarget:
+    type: argocd.DeploymentTarget
+    targetUrl: https://kubernetes.default.svc
+    destination: https://kubernetes.default.svc
+    namespace: default
+- name: dev
+  type: xlrelease.Environment
+  correlationUid: 5d2522d8-ba09-44aa-b593-5930706baadb
+  description: "Target: https://021d-49-204-143-130.ngrok-free.app/#/explorer?ciId=Environments/dev-dir/dev"
+  stage: Unknown
+  deploymentTarget:
+    type: deploy.DeploymentTarget
+    targetUrl: https://021d-49-204-143-130.ngrok-free.app/#/explorer?ciId=Environments/dev-dir/dev
+    environmentPath: "[dev](https://021d-49-204-143-130.ngrok-free.app/#/explorer?ciId=Environments/dev-dir/dev)"
+- name: prod
+  type: xlrelease.Environment
+  correlationUid: f741bc66-9c7b-4af4-9d03-05dec6131acf
+  description: "Target: https://021d-49-204-143-130.ngrok-free.app/#/explorer?ciId=Environments/prod-dir/prod"
+  stage: Unknown
+  deploymentTarget:
+    type: deploy.DeploymentTarget
+    targetUrl: https://021d-49-204-143-130.ngrok-free.app/#/explorer?ciId=Environments/prod-dir/prod
+    environmentPath: "[prod](https://021d-49-204-143-130.ngrok-free.app/#/explorer?ciId=Environments/prod-dir/prod)"
+- name: test
+  type: xlrelease.Environment
+  correlationUid: 204fa655-7dd0-430b-8b16-a08e42112c34
+  description: "Target: https://021d-49-204-143-130.ngrok-free.app/#/explorer?ciId=Environments/test-dir/test"
+  stage: Unknown
+  deploymentTarget:
+    type: deploy.DeploymentTarget
+    targetUrl: https://021d-49-204-143-130.ngrok-free.app/#/explorer?ciId=Environments/test-dir/test
+    environmentPath: "[test](https://021d-49-204-143-130.ngrok-free.app/#/explorer?ciId=Environments/test-dir/test)"

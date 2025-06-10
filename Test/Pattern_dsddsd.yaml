@@ -4,12 +4,12 @@
 
 ---
 apiVersion: xl-release/v1
-kind: Import
+kind: Templates
+metadata:
+  path: /
+  home: test
 spec:
-  imports:
-  - Connections.yaml
-  - Notifications.yaml
-  - Pattern_dsddsd.yaml
-  - Permissions.yaml
-  - Template_test (1).yaml
-  - Template_test.yaml
+- pattern: dsddsd
+  description: dsdsasds
+  stages:
+  - stage: New Stage

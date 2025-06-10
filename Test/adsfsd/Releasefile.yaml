@@ -7,9 +7,5 @@ apiVersion: xl-release/v1
 kind: Import
 spec:
   imports:
-  - Connections.yaml
   - Notifications.yaml
-  - Pattern_dsddsd.yaml
   - Permissions.yaml
-  - Template_test (1).yaml
-  - Template_test.yaml

@@ -6,8 +6,8 @@
 apiVersion: xl-release/v1
 kind: Templates
 metadata:
-  path: /
-  home: test
+  path: adsfsd
+  home: test/adsfsd
 spec:
 - notifications:
   - notification: TASK_OVERDUE

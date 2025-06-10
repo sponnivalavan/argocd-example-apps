@@ -1,0 +1,32 @@
+# Exported from:        http://Ponnivalavan:5516/
+# Release version:      25.1.2-608.1713
+# Date created:         Tue Jun 10 15:47:24 IST 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: test
+spec:
+- template: ddsdsdsds
+  scheduledStartDate: 2025-06-10T09:00:00+05:30
+  phases:
+  - phase: New Phase
+  extensions:
+  - name: Dashboard
+    type: xlrelease.Dashboard
+    owner: admin
+    tiles:
+    - name: Resource usage
+      type: xlrelease.ResourceUsageTile
+    - name: Release progress
+      type: xlrelease.ReleaseProgressTile
+    - name: Release summary
+      type: xlrelease.ReleaseSummaryTile
+    - name: Release timeline
+      type: xlrelease.TimelineTile
+    - name: Release health
+      type: xlrelease.ReleaseHealthTile
+  riskProfile: Default risk profile
+  author: admin

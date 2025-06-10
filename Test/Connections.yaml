@@ -1,6 +1,6 @@
 # Exported from:        http://Ponnivalavan:5516/
-# Release version:      24.3.8-608.913
-# Date created:         Tue Jun 10 11:19:06 IST 2025
+# Release version:      25.1.2-608.1713
+# Date created:         Tue Jun 10 15:47:24 IST 2025
 
 ---
 apiVersion: xl-release/v1
@@ -9,21 +9,21 @@ metadata:
   path: /
   home: test
 spec:
-- name: argocd server - Event source
-  type: argo.StatusWebhookEventSource
-  eventSource: argocd server - Webhook
-  sourceServer: argocd server
-  liveDeploymentConfigs:
-  - Configuration/Custom/Configuration5b2a0932868d4701bf541750a1fac061
-- name: argocd server
+- name: Argocd server - Webhook
+  type: events.PostWebhookEndpoint
+  path: path-3828d337-138c-4d4f-a00b-f302ca4c9205
+  authentication:
+    type: events.NoAuthentication
+- name: Argocd server deployments
+  type: argocd.DeploymentConfig
+- name: Argocd server
   type: argocd.APIServer
   url: https://argocd.digitalai-testing.com:31591/
   username: admin
-  password: !value "argocd_APIServer_argocd_server_password"
-- name: argoliveconfig
-  type: argocd.DeploymentConfig
-- name: argocd server - Webhook
-  type: events.PostWebhookEndpoint
-  path: path-f11937af-af7c-497a-a079-5351b6cb1cd0
-  authentication:
-    type: events.NoAuthentication
+  password: !value "argocd_APIServer_Argocd_server_password"
+- name: Argocd server - Event source
+  type: argo.StatusWebhookEventSource
+  eventSource: Argocd server - Webhook
+  sourceServer: Argocd server
+  liveDeploymentConfigs:
+  - Argocd server deployments

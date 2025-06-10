@@ -4,11 +4,14 @@
 
 ---
 apiVersion: xl-release/v1
-kind: Import
+kind: Templates
+metadata:
+  path: /
+  home: test
 spec:
-  imports:
-  - Connections.yaml
-  - Notifications.yaml
-  - Pattern_rrrr.yaml
-  - Template_ddsdsdsds.yaml
-  - Trigger_wefewewew.yaml
+- pattern: rrrr
+  description: rerere
+  stages:
+  - stage: New Stage
+  - stage: New Stage (1)
+  autoComplete: true

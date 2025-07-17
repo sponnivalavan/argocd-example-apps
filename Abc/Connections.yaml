@@ -1,0 +1,50 @@
+# Exported from:        http://Ponnivalavan:5516/
+# Release version:      25.3.0-SNAPSHOT
+# Date created:         Thu Jul 17 18:42:34 IST 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: abc
+spec:
+- name: Argocd Server - Webhook
+  type: events.PostWebhookEndpoint
+  path: path-88a283f7-17fc-409c-ab78-0f233c2f63f7
+  authentication:
+    type: events.NoAuthentication
+- name: local deploy server - Webhook
+  type: events.PostWebhookEndpoint
+  path: path-e35976d9-822b-4870-9ce4-2028d9f67d32
+  authentication:
+    type: events.NoAuthentication
+- name: Argocd Server deployments
+  type: argocd.DeploymentConfig
+- name: local deploy server deployments
+  type: deploy.DeploymentConfig
+  application: Applications/.*
+  environment: Environments/.*
+- name: Argocd Server
+  type: argocd.APIServer
+  url: https://argocd.digitalai-testing.com:31591/
+  username: admin
+  password: !value "argocd_APIServer_Argocd_Server_password"
+- name: local deploy server
+  type: digitalai.DeployServer
+  url: https://9700b99fb7f3.ngrok-free.app
+  username: admin
+  password: !value "digitalai_DeployServer_local_deploy_server_password"
+  verifySSL: false
+- name: Argocd Server - Event source
+  type: argo.StatusWebhookEventSource
+  eventSource: Argocd Server - Webhook
+  sourceServer: Argocd Server
+  liveDeploymentConfigs:
+  - Argocd Server deployments
+- name: local deploy server - Event source
+  type: deploy.StatusWebhookEventSource
+  eventSource: local deploy server - Webhook
+  sourceServer: local deploy server
+  liveDeploymentConfigs:
+  - local deploy server deployments

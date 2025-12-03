@@ -1,0 +1,153 @@
+# Exported from:        http://Ponnivalavan:5516/
+# Release version:      25.1.7-1130.800
+# Date created:         Wed Dec 03 15:15:33 IST 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: container_argocd
+spec:
+- template: container_argocd
+  scheduledStartDate: 2025-05-14T09:00:00+05:30
+  dueDate: 2025-05-14T10:00:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: DeleteProject_Precondition
+      type: argocd.DeleteProject
+      failureHandler: |-
+        release = getCurrentRelease()
+        rid = release.id
+        releaseApi.abort(rid, "aborting release from failure handler as task failed")
+      taskFailureHandlerEnabled: true
+      taskRecoverOp: SKIP_TASK
+      capabilities:
+      - remote
+      server: argocd server
+      projectName: test
+    - name: DeleteApplications_Precondition
+      type: argocd.RemoveApplication
+      failureHandler: |-
+        release = getCurrentRelease()
+        rid = release.id
+        releaseApi.abort(rid, "aborting release from failure handler as task failed")
+      taskFailureHandlerEnabled: true
+      taskRecoverOp: SKIP_TASK
+      capabilities:
+      - remote
+      server: argocd server
+      applicationName: app2
+    - name: CreateProject
+      type: argocd.CreateProject
+      failureHandler: |-
+        release = getCurrentRelease()
+        rid = release.id
+        releaseApi.abort(rid, "aborting release from failure handler as task failed")
+      taskFailureHandlerEnabled: true
+      taskRecoverOp: RUN_SCRIPT
+      capabilities:
+      - remote
+      server: argocd server
+      projectName: test
+      upsert: true
+    - name: GetProjectDetails
+      type: argocd.ProjectDetails
+      failureHandler: |-
+        release = getCurrentRelease()
+        rid = release.id
+        releaseApi.abort(rid, "aborting release from failure handler as task failed")
+      taskFailureHandlerEnabled: true
+      taskRecoverOp: RUN_SCRIPT
+      capabilities:
+      - remote
+      server: argocd server
+      projectName: test
+    - name: ListProjects
+      type: argocd.ListProjects
+      failureHandler: |-
+        release = getCurrentRelease()
+        rid = release.id
+        releaseApi.abort(rid, "aborting release from failure handler as task failed")
+      taskFailureHandlerEnabled: true
+      taskRecoverOp: RUN_SCRIPT
+      capabilities:
+      - remote
+      server: argocd server
+    - name: DeleteProject
+      type: argocd.DeleteProject
+      failureHandler: |-
+        release = getCurrentRelease()
+        rid = release.id
+        releaseApi.abort(rid, "aborting release from failure handler as task failed")
+      taskFailureHandlerEnabled: true
+      taskRecoverOp: RUN_SCRIPT
+      capabilities:
+      - remote
+      server: argocd server
+      projectName: test
+    - name: CreateApplication
+      type: argocd.CreateApplication
+      failureHandler: |-
+        release = getCurrentRelease()
+        rid = release.id
+        releaseApi.abort(rid, "aborting release from failure handler as task failed")
+      taskFailureHandlerEnabled: true
+      taskRecoverOp: RUN_SCRIPT
+      capabilities:
+      - remote
+      server: argocd server
+      appName: app2
+      url: https://github.com/sponnivalavan/argocd-example-apps.git
+      path: guestbook
+    - name: GetApplicationDetails
+      type: argocd.ApplicationInfo
+      failureHandler: |-
+        release = getCurrentRelease()
+        rid = release.id
+        releaseApi.abort(rid, "aborting release from failure handler as task failed")
+      taskFailureHandlerEnabled: true
+      taskRecoverOp: RUN_SCRIPT
+      capabilities:
+      - remote
+      server: argocd server
+      applicationName: app1
+    - name: ListApplications
+      type: argocd.ListApplications
+      failureHandler: |-
+        release = getCurrentRelease()
+        rid = release.id
+        releaseApi.abort(rid, "aborting release from failure handler as task failed")
+      taskFailureHandlerEnabled: true
+      taskRecoverOp: RUN_SCRIPT
+      capabilities:
+      - remote
+      server: argocd server
+    - name: DeleteApplications
+      type: argocd.RemoveApplication
+      failureHandler: |-
+        release = getCurrentRelease()
+        rid = release.id
+        releaseApi.abort(rid, "aborting release from failure handler as task failed")
+      taskFailureHandlerEnabled: true
+      taskRecoverOp: RUN_SCRIPT
+      capabilities:
+      - remote
+      server: argocd server
+      applicationName: app2
+    - name: ListRepositories
+      type: argocd.ListRepositories
+      failureHandler: |-
+        release = getCurrentRelease()
+        rid = release.id
+        releaseApi.abort(rid, "aborting release from failure handler as task failed")
+      taskFailureHandlerEnabled: true
+      taskRecoverOp: RUN_SCRIPT
+      capabilities:
+      - remote
+      server: argocd server
+  scriptUsername: admin
+  scriptUserPassword: !value "xlrelease_Release_container_argocd_scriptUserPassword"
+  riskProfile: Default risk profile
+  author: admin

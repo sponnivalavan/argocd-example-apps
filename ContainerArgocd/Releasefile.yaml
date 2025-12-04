@@ -1,6 +1,6 @@
 # Exported from:        http://Ponnivalavan:5516/
-# Release version:      25.1.7-1130.800
-# Date created:         Wed Dec 03 15:16:10 IST 2025
+# Release version:      24.3.13-1201.631
+# Date created:         Thu Dec 04 12:33:21 IST 2025
 
 ---
 apiVersion: xl-release/v1
@@ -9,5 +9,5 @@ spec:
   imports:
   - Connections.yaml
   - Notifications.yaml
-  - Pattern_dsds.yaml
+  - Pattern_pat1dsfdfd.yaml
   - Template_container_argocd.yaml
